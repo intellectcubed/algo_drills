@@ -19,6 +19,9 @@ class DisjointSet:
         """
         TODO: Implement union by rank.
         Merges the sets containing x and y.
+        Return: 
+            True if unioned
+            False if already unioned
         """
         pass
 
