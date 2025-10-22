@@ -6,9 +6,8 @@ class DFSTraversal:
     """
 
     def __init__(self):
-        self.visited = set()
-        self.result = []
-
+        pass
+    
     def traverse(self, start_node: Node):
         """Perform DFS and return list of node names in visited order."""
         pass
