@@ -1,0 +1,62 @@
+project_name: "algo_drills"
+description: >
+  A Python-based algorithm practice suite with mirrored structures for 
+  reference implementations and blank shells. The project includes a unified 
+  pytest test suite that can be run against either version based on an 
+  environment variable.
+
+goals:
+  - Maintain a clean and consistent folder structure for algorithms.
+  - Allow new exercises (e.g., BFS, DFS, sorting, union-find) to be added easily.
+  - Each exercise should include:
+      - A reference implementation under `implementations/`
+      - A shell file under `practice_shells/`
+      - Unit tests under `tests/`
+  - Tests should detect which version to test via the `ALGO_IMPL` environment variable.
+
+structure:
+  implementations: "implementations"
+  shells: "practice_shells"
+  tests: "tests"
+  common: "shared"  # (optional) for any future utilities like Node, Graph, etc.
+
+file_conventions:
+  - Each algorithm type (e.g., graph, sorting, dp) should be a subpackage.
+  - Implementations and shells must mirror directory structure.
+  - Test files use `importlib` to dynamically load the correct implementation:
+      ```
+      ACTIVE_IMPL = os.getenv('ALGO_IMPL', 'practice_shells')
+      importlib.import_module(f"{ACTIVE_IMPL}.graphs.bfs_traversal")
+      ```
+  - Each algorithm test should include:
+      - Typical/nominal case
+      - Edge cases (empty, single-element, cyclic, etc.)
+      - Performance or large input sanity check (optional)
+
+naming_conventions:
+  implementations_package: "implementations"
+  shells_package: "practice_shells"
+  test_prefix: "test_"
+  class_suffixes:
+    - Traversal
+    - Sort
+    - UnionFind
+    - Search
+    - PathFinder
+
+env_settings:
+  active_impl_var: "ALGO_IMPL"
+  default_value: "practice_shells"
+  note: >
+    When ALGO_IMPL is not set, tests default to using the shell versions 
+    and print a message indicating the fallback.
+
+recommended_workflow:
+  - To add a new algorithm exercise:
+      1. Create a new subfolder (if needed) under both `implementations/` and `practice_shells/`.
+      2. Add the reference implementation and a blank shell version.
+      3. Add test cases under `tests/` following naming convention `test_<algorithm>.py`.
+  - To test your code:
+      ```
+      pytest -q
+
