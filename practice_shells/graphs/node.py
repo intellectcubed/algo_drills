@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self):
+    def __init__(self, name):
         pass
 
     def add_neighbor(self, node):

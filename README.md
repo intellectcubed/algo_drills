@@ -15,3 +15,12 @@ Next, you can say:
 ```
 Add exercise dfs_traversal using the same structure as BFS
 ```
+
+
+If you want to run a specific file, you can use: 
+```
+ALGO_IMPL=implementations pytest test_bfs_traversal.py
+
+# Or just: 
+pytest test_bfs_traversal.py
+```
