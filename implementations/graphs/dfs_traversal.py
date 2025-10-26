@@ -29,14 +29,23 @@ class DFSTraversal:
         self.result.clear()
         stack = [start_node]
 
+        # while stack:
+        #     node = stack.pop()
+        #     if node not in self.visited:
+        #         self.visited.add(node)
+        #         self.result.append(node.name)
+        #         # Reverse to maintain left-to-right neighbor visit order
+        #         for neighbor in reversed(node.neighbors):
+        #             if neighbor not in self.visited:
+        #                 stack.append(neighbor)
+
         while stack:
             node = stack.pop()
-            if node not in self.visited:
-                self.visited.add(node)
-                self.result.append(node.name)
-                # Reverse to maintain left-to-right neighbor visit order
-                for neighbor in reversed(node.neighbors):
-                    if neighbor not in self.visited:
-                        stack.append(neighbor)
+            self.visited.add(node)
+            self.result.append(node.name)
+            # Reverse to maintain left-to-right neighbor visit order
+            for neighbor in reversed(node.neighbors):
+                if neighbor not in self.visited:
+                    stack.append(neighbor)
 
         return self.result
