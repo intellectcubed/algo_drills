@@ -41,3 +41,28 @@ def test_union_find_path_compression():
     for i in range(4):
         assert ds.find(i) == root_before
 
+def test_union_find_compaction():
+    """Test that path compression (compaction) is actually happening."""
+    ds = DisjointSet(5)
+    
+    # Create a chain: 0 -> 1 -> 2 -> 3 -> 4
+    ds.union(0, 1)
+    ds.union(1, 2) 
+    ds.union(2, 3)
+    ds.union(3, 4)
+    
+    # Before compression, we should have a chain structure
+    # The exact structure depends on union by rank, but let's find the deepest node
+    root = ds.find(4)  # This will trigger path compression for node 4
+    
+    # After path compression, node 4 should point directly to root
+    # and subsequent finds should be O(1)
+    assert ds.parent[4] == root
+    
+    # Test that all nodes in the set now point directly to root or very close
+    # After full compression, all nodes should have the same root
+    for i in range(5):
+        assert ds.find(i) == root
+        # After find operations, all nodes should point directly to root
+        assert ds.parent[i] == root
+

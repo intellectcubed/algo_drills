@@ -24,6 +24,7 @@ def test_bfs_basic():
     a, _, _, _, _ = build_sample_graph()
     traversal = BFSTraversal()
     order = traversal.bfs(a)
+    print(order)
     assert order[0] == "A"
     assert set(order) == {"A", "B", "C", "D", "E"}
     # BFS should visit A, then B/C, then D/E
@@ -38,7 +39,9 @@ def test_bfs_empty_graph():
 
 def test_bfs_single_node():
     a = Node("A")
+    print(f'test_bfs_empty_graph nodea: {a}')
     traversal = BFSTraversal()
+    print(f'test_bfs_empty_graph: Result from traversal: {traversal.bfs(a)}')
     assert traversal.bfs(a) == ["A"]
 
 

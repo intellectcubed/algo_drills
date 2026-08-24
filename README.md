@@ -16,6 +16,38 @@ Next, you can say:
 Add exercise dfs_traversal using the same structure as BFS
 ```
 
+## Running Tests: 
+You can run your implementation, or run the default implementation
+
+### First, source: 
+```shell
+cd /Users/george.nowakowski/Projects/python/algo_drills
+source venv/bin/activate
+cd tests
+```
+
+### Running default implementation: 
+**All**
+```shell
+ALGO_IMPL=implementations pytest
+```
+
+**Specific**
+```shell
+ALGO_IMPL=implementations pytest test_bfs_traversal.py
+```
+
+### Running your code: 
+**All**
+```shell
+pytest
+```
+
+***Specific**
+```shell
+pytest -s test_bfs_traversal.py
+```
+
 
 ### To run all tests: 
 ```
