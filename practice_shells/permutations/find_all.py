@@ -6,7 +6,7 @@ class FindAllPermutations:
     """
 
     def __init__(self):
-        self.result = set()
+        self.result = []
 
     def permute(self, chars):
         """
@@ -17,4 +17,23 @@ class FindAllPermutations:
 
         Returns:
             A list of all permutations, where each permutation is a list
-        """        
+        """
+        if not chars:
+            return []
+
+        self.result = []
+        self._backtrack(chars, [])
+        return self.result
+
+    def _backtrack(self, chars, current):
+        """
+        Recursive helper function to generate permutations using backtracking.
+
+        Args:
+            chars: Remaining characters to permute
+            current: Current permutation being built
+        """
+        # TODO: Implement the backtracking logic
+        # Base case: if no more chars, add current to result
+        # Recursive case: try each remaining char and recurse
+        pass
