@@ -4,18 +4,18 @@ class DisjointSet:
     with path compression and union by rank.
     """
 
-    def __init__(self, n):
+    def __init__(self, n: int):
         # TODO: Initialize parent and rank arrays
         pass
 
-    def find(self, x):
+    def find(self, x:int) -> int:
         """
         TODO: Implement find with path compression.
         Returns the representative of the set containing x.
         """
         pass
 
-    def union(self, x, y):
+    def union(self, x: int, y: int) -> bool:
         """
         TODO: Implement union by rank.
         Merges the sets containing x and y.
@@ -25,7 +25,7 @@ class DisjointSet:
         """
         pass
 
-    def connected(self, x, y):
+    def connected(self, x:int, y:int) -> bool:
         """
         TODO: Return True if x and y belong to the same set.
         """
