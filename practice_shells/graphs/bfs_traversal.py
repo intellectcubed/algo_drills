@@ -6,7 +6,7 @@ class BFSTraversal:
     Given a starting Node, return a list of node names in BFS order.
     """
 
-    def bfs(self, start_node):
+    def bfs(self, start_node) -> list[str]:
         """
         :param start_node: Node to start from (may be None)
         :return: List of node names visited in BFS order
